@@ -1,11 +1,71 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { IProduct } from './product.model';
+import { ProductService } from 'src/app/Services/product.service';
+import { MatDialog } from '@angular/material/dialog';
+import { ProductModalComponent } from './product-modal/product-modal.component';
 
 @Component({
   selector: 'app-product',
   templateUrl: './product.component.html',
-  styleUrls: ['./product.component.scss']
+  styleUrls: ['./product.component.css'],
 })
-export class ProductComponent {
+export class ProductComponent implements OnInit {
+  products: IProduct[] = [];
+  displayedColumns: string[] = ['name', 'quantity', 'unit_cost', 'actions'];
+
+
+  constructor(
+    private productService: ProductService,
+    public dialog: MatDialog
+  ) { }
+
+  ngOnInit(): void {
+    this.loadProducts();
+  }
+
+  loadProducts() {
+    this.productService.getProducts().subscribe((products) => {
+      this.products = products;
+    });
+  }
+
+  openProductDialog(product?: IProduct) {
+    const dialogRef = this.dialog.open(ProductModalComponent, {
+      width: '500px',
+      data: product || {}, // Передайте данные о продукте в модальное окно
+    });
+
+    dialogRef.afterClosed().subscribe((result) => {
+      if (result) {
+        // Обновлнение продукта
+        if (result.id) {
+          this.productService.updateProduct(result).subscribe(
+            () => {
+              this.loadProducts();
+            }
+          );
+          // Добавление продукта
+        } else {
+          this.productService.addProduct(result).subscribe(
+            () => {
+              this.loadProducts();
+            }
+          );
+        }
+      }
+    });
+  }
+
+
+  // Удаление продукта
+  deleteProduct(product: IProduct) {
+    this.productService.deleteProduct(product.id).subscribe(() => {
+      this.loadProducts();
+    });
+  }
+
+
+
 
 
 }

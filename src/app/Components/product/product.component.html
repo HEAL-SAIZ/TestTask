@@ -1,1 +1,28 @@
-<p>product works!</p>
+<div class="product-container">
+    <h2>Список продуктов</h2>
+    <button mat-raised-button color="primary" (click)="openProductDialog()">Добавить продукт</button>
+    <table mat-table [dataSource]="products">
+        <ng-container matColumnDef="name">
+            <th mat-header-cell *matHeaderCellDef> Название </th>
+            <td mat-cell *matCellDef="let product"> {{ product.name }} </td>
+        </ng-container>
+        <ng-container matColumnDef="quantity">
+            <th mat-header-cell *matHeaderCellDef> Количество </th>
+            <td mat-cell *matCellDef="let product"> {{ product.quantity }} </td>
+        </ng-container>
+        <ng-container matColumnDef="unit_cost">
+            <th mat-header-cell *matHeaderCellDef> Стоимость за единицу </th>
+            <td mat-cell *matCellDef="let product"> {{ product.unit_cost }} </td>
+        </ng-container>
+        <ng-container matColumnDef="actions">
+            <th mat-header-cell *matHeaderCellDef> Действия </th>
+            <td mat-cell *matCellDef="let product">
+                <button mat-raised-button color="primary" (click)="openProductDialog(product)">Редактировать</button>
+                <button mat-raised-button color="warn" (click)="deleteProduct(product)">Удалить</button>
+            </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+</div>
