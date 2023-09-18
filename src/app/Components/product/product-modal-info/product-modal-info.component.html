@@ -1,0 +1,24 @@
+<h2 mat-dialog-title class="text-center">Продукт</h2>
+<div mat-dialog-content>
+    <form #productForm="ngForm" class="container flex flex-col">
+        <mat-form-field class=" ">
+            <mat-label>Название</mat-label>
+            <input matInput [readonly]="true" [(ngModel)]="product.name" name="name" required>
+        </mat-form-field>
+        <mat-form-field class="">
+            <mat-label>Количество</mat-label>
+            <input matInput [readonly]="true" type="number" [(ngModel)]="product.quantity" name="quantity" required>
+        </mat-form-field>
+        <mat-form-field class="">
+            <mat-label>Стоимость за единицу</mat-label>
+            <input matInput [readonly]="true" type="number" [(ngModel)]="product.unit_cost" name="unit_cost" required>
+        </mat-form-field>
+    </form>
+</div>
+<div mat-dialog-actions class="flex w-full  !justify-between !pb-5 !px-6">
+
+    <button mat-raised-button cdkFocusInitial class=" !bg-black !text-white !w-40 " (click)="onNoClick()">Выйти
+        обратно</button>
+
+
+</div>

@@ -3,6 +3,7 @@ import { IProduct } from './product.model';
 import { ProductService } from 'src/app/Services/product.service';
 import { MatDialog } from '@angular/material/dialog';
 import { ProductModalComponent } from './product-modal/product-modal.component';
+import { ProductModalInfoComponent } from './product-modal-info/product-modal-info.component';
 
 @Component({
   selector: 'app-product',
@@ -27,6 +28,15 @@ export class ProductComponent implements OnInit {
       this.products = products;
     });
   }
+
+
+  openProductInfoDialog(product?: IProduct) {
+    const dialogRef = this.dialog.open(ProductModalInfoComponent, {
+      width: '550px',
+      data: product || {}, // Передача данных в модальное окно
+    });
+  }
+
 
   openProductDialog(product?: IProduct) {
     const dialogRef = this.dialog.open(ProductModalComponent, {

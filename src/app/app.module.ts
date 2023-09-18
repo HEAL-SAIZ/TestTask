@@ -14,13 +14,15 @@ import { AppComponent } from './app.component';
 import { ProductComponent } from './Components/product/product.component';
 import { ProductService } from './Services/product.service';
 import { ProductModalComponent } from './Components/product/product-modal/product-modal.component';
+import { ProductModalInfoComponent } from './Components/product/product-modal-info/product-modal-info.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     ProductModalComponent,
-    ProductComponent
+    ProductComponent,
+    ProductModalInfoComponent
   ],
   imports: [
     BrowserModule,

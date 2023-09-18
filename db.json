@@ -1,7 +1,7 @@
 {
   "product": [
     {
-      "name": "Сахар",
+      "name": "Сироп",
       "quantity": 2000,
       "unit_cost": 50,
       "id": 3
@@ -11,6 +11,12 @@
       "quantity": 260,
       "unit_cost": 189,
       "id": 4
+    },
+    {
+      "name": "Хлеб",
+      "quantity": 1000,
+      "unit_cost": 35,
+      "id": 5
     }
   ]
 }
