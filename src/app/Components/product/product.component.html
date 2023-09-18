@@ -1,28 +1,33 @@
-<div class="product-container">
-    <h2>Список продуктов</h2>
-    <button mat-raised-button color="primary" (click)="openProductDialog()">Добавить продукт</button>
-    <table mat-table [dataSource]="products">
-        <ng-container matColumnDef="name">
-            <th mat-header-cell *matHeaderCellDef> Название </th>
-            <td mat-cell *matCellDef="let product"> {{ product.name }} </td>
-        </ng-container>
-        <ng-container matColumnDef="quantity">
-            <th mat-header-cell *matHeaderCellDef> Количество </th>
-            <td mat-cell *matCellDef="let product"> {{ product.quantity }} </td>
-        </ng-container>
-        <ng-container matColumnDef="unit_cost">
-            <th mat-header-cell *matHeaderCellDef> Стоимость за единицу </th>
-            <td mat-cell *matCellDef="let product"> {{ product.unit_cost }} </td>
-        </ng-container>
-        <ng-container matColumnDef="actions">
-            <th mat-header-cell *matHeaderCellDef> Действия </th>
-            <td mat-cell *matCellDef="let product">
-                <button mat-raised-button color="primary" (click)="openProductDialog(product)">Редактировать</button>
-                <button mat-raised-button color="warn" (click)="deleteProduct(product)">Удалить</button>
-            </td>
-        </ng-container>
+<h2 class="text-center">Список продуктов</h2>
+<table mat-table [dataSource]="products" class="!p-6 !m-6 !mx-auto "
+    style="width: 70% !important; min-width: unset !important;">
+    <ng-container matColumnDef="name">
+        <th mat-header-cell *matHeaderCellDef class="!p-8 !pb-1"> Название </th>
+        <td mat-cell *matCellDef="let product" class="!p-8 !pt-3"> {{ product.name }} </td>
+    </ng-container>
+    <ng-container matColumnDef="quantity">
+        <th mat-header-cell *matHeaderCellDef class="!p-8 !pb-1"> Количество </th>
+        <td mat-cell *matCellDef="let product" class="!p-8 !pt-3"> {{ product.quantity }} </td>
+    </ng-container>
+    <ng-container matColumnDef="unit_cost">
+        <th mat-header-cell *matHeaderCellDef class="!p-8 !pb-1"> Стоимость за единицу </th>
+        <td mat-cell *matCellDef="let product" class="!p-8 !pt-3"> {{ product.unit_cost }} </td>
+    </ng-container>
+    <ng-container matColumnDef="actions">
+        <th mat-header-cell *matHeaderCellDef class="!p-8 !pb-1 "> Действия </th>
+        <td mat-cell *matCellDef="let product" class="!p-8 !pb-2 !pt-3">
+            <div class="flex flex-col">
+                <button mat-raised-button class=" !mr-10 !mb-4" color="primary"
+                    (click)="openProductDialog(product)">Редактировать</button>
+                <button mat-raised-button class=" !mr-10 !bg-red-500" color="warn"
+                    (click)="deleteProduct(product)">Удалить</button>
+            </div>
+        </td>
+    </ng-container>
 
-        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-    </table>
-</div>
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+</table>
+<button mat-raised-button class="!mx-auto !block !bg-violet-600 !mt-10" style="width: 300px !important;" color="primary"
+    (click)="openProductDialog()">Добавить
+    продукт</button>

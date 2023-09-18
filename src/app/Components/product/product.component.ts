@@ -7,7 +7,6 @@ import { ProductModalComponent } from './product-modal/product-modal.component';
 @Component({
   selector: 'app-product',
   templateUrl: './product.component.html',
-  styleUrls: ['./product.component.css'],
 })
 export class ProductComponent implements OnInit {
   products: IProduct[] = [];
@@ -31,8 +30,8 @@ export class ProductComponent implements OnInit {
 
   openProductDialog(product?: IProduct) {
     const dialogRef = this.dialog.open(ProductModalComponent, {
-      width: '500px',
-      data: product || {}, // Передайте данные о продукте в модальное окно
+      width: '550px',
+      data: product || {}, // Передача данных в модальное окно
     });
 
     dialogRef.afterClosed().subscribe((result) => {

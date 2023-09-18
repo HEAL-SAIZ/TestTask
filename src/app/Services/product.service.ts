@@ -8,7 +8,7 @@ import { IProduct } from '../Components/product/product.model';
 })
 export class ProductService {
 
-  private apiUrl = 'http://localhost:8000'; // Адрес API
+  private apiUrl = 'http://localhost:3000/product'; // Адрес API
 
   constructor(private http: HttpClient) { }
 

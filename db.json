@@ -1,0 +1,16 @@
+{
+  "product": [
+    {
+      "name": "Сахар",
+      "quantity": 2000,
+      "unit_cost": 50,
+      "id": 3
+    },
+    {
+      "name": "Ананасы",
+      "quantity": 260,
+      "unit_cost": 189,
+      "id": 4
+    }
+  ]
+}

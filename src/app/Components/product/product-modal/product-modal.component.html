@@ -1,20 +1,23 @@
-<h2 mat-dialog-title>Продукт</h2>
+<h2 mat-dialog-title class="text-center">Продукт</h2>
 <div mat-dialog-content>
-    <form #productForm="ngForm">
-        <mat-form-field>
+    <form #productForm="ngForm" class="container flex flex-col">
+        <mat-form-field class=" ">
             <input matInput placeholder="Название" [(ngModel)]="product.name" name="name" required>
         </mat-form-field>
-        <mat-form-field>
+        <mat-form-field class="">
             <input matInput type="number" placeholder="Количество" [(ngModel)]="product.quantity" name="quantity"
                 required>
         </mat-form-field>
-        <mat-form-field>
+        <mat-form-field class="">
             <input matInput type="number" placeholder="Стоимость за единицу" [(ngModel)]="product.unit_cost"
                 name="unit_cost" required>
         </mat-form-field>
     </form>
 </div>
-<div mat-dialog-actions>
-    <button mat-button (click)="onNoClick()">Отмена</button>
-    <button mat-button [mat-dialog-close]="product" cdkFocusInitial>Сохранить</button>
+<div mat-dialog-actions class="flex w-full  !justify-between !pb-5 !px-6">
+
+    <button mat-raised-button class=" !bg-black !text-white !w-40 " (click)="onNoClick()">Отмена</button>
+    <button mat-raised-button class="!w-40" color="primary" [mat-dialog-close]="product"
+        cdkFocusInitial>Сохранить</button>
+
 </div>

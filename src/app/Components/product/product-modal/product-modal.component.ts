@@ -6,8 +6,7 @@ import { IProduct } from '../product.model';
 
 @Component({
   selector: 'app-product-modal',
-  templateUrl: './product-modal.component.html',
-  styleUrls: ['./product-modal.component.scss']
+  templateUrl: './product-modal.component.html'
 })
 export class ProductModalComponent implements OnInit {
 
