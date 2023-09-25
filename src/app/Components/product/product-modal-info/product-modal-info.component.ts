@@ -13,7 +13,9 @@ export class ProductModalInfoComponent implements OnInit {
     id: 0,
     name: '',
     quantity: 0,
-    unit_cost: 0
+    unit_cost: 0,
+    units_of_measurement: { id: 0, value: '' }
+
   }
 
   constructor(

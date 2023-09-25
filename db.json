@@ -1,22 +1,44 @@
 {
   "product": [
     {
-      "name": "Сироп",
+      "name": "Чипсы",
       "quantity": 2000,
       "unit_cost": 50,
-      "id": 3
+      "id": 3,
+      "units_of_measurement": {
+        "id": 1,
+        "value": "Штуки"
+      }
     },
     {
       "name": "Ананасы",
-      "quantity": 260,
+      "quantity": 261,
       "unit_cost": 189,
-      "id": 4
+      "id": 4,
+      "units_of_measurement": {
+        "id": 2,
+        "value": "Штуки"
+      }
     },
     {
       "name": "Хлеб",
       "quantity": 1000,
       "unit_cost": 35,
-      "id": 5
+      "id": 5,
+      "units_of_measurement": {
+        "id": 2,
+        "value": "Штуки"
+      }
+    }
+  ],
+  "units_of_measurement": [
+    {
+      "value": "Литры",
+      "id": 1
+    },
+    {
+      "value": "Штуки",
+      "id": 2
     }
   ]
 }

@@ -13,25 +13,28 @@
         <th mat-header-cell *matHeaderCellDef class="!p-8 !pb-1"> Стоимость за единицу </th>
         <td mat-cell *matCellDef="let product" class="!p-8 !pt-3"> {{ product.unit_cost }} </td>
     </ng-container>
+    <ng-container matColumnDef="units_of_measurement">
+        <th mat-header-cell *matHeaderCellDef class="!p-8 !pb-1"> Единицы измерения </th>
+        <td mat-cell *matCellDef="let product" class="!p-8 !pt-3"> {{ product.units_of_measurement.value }} </td>
+    </ng-container>
     <ng-container matColumnDef="actions">
         <th mat-header-cell *matHeaderCellDef class="!p-8 !pb-1 "> Действия </th>
         <td mat-cell *matCellDef="let product" class="!p-8 !pb-2 !pt-3">
             <div class="flex flex-col">
-                <div class="flex flex-row !mr-10 !mb-2">
+                <div class="flex flex-row !mb-2">
                     <button mat-raised-button class="basis-2/4 !mr-1" color="primary"
-                        (click)="openProductDialog(product)">Редактировать</button>
-                    <button mat-raised-button class="basis-2/4  !bg-green-500 !ml-1" color="primary"
+                        (click)="openChangeProductDialog(product)">Редактировать</button>
+                    <button mat-raised-button class="basis-2/4  !bg-green-500 !ml-1 text-xs" color="primary"
                         (click)="openProductInfoDialog(product)">Информация о товаре</button>
                 </div>
-                <button mat-raised-button class=" !mr-10 !bg-red-500" color="warn"
+                <button mat-raised-button class="  !bg-red-500" color="warn"
                     (click)="deleteProduct(product)">Удалить</button>
             </div>
         </td>
     </ng-container>
-
     <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
     <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
 </table>
 <button mat-raised-button class="!mx-auto !block !bg-violet-600 !mt-10" style="width: 300px !important;" color="primary"
-    (click)="openProductDialog()">Добавить
+    (click)="openCreateProductDialog()">Добавить
     продукт</button>

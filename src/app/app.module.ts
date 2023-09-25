@@ -9,6 +9,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MatIconModule } from '@angular/material/icon';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatSelectModule } from '@angular/material/select';
 
 import { AppComponent } from './app.component';
 import { ProductComponent } from './Components/product/product.component';
@@ -35,6 +36,7 @@ import { ProductModalInfoComponent } from './Components/product/product-modal-in
     MatIconModule,
     MatDialogModule,
     MatFormFieldModule,
+    MatSelectModule,
   ],
   providers: [ProductService],
   bootstrap: [AppComponent],

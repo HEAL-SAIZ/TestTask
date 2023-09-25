@@ -11,7 +11,7 @@ import { ProductModalInfoComponent } from './product-modal-info/product-modal-in
 })
 export class ProductComponent implements OnInit {
   products: IProduct[] = [];
-  displayedColumns: string[] = ['name', 'quantity', 'unit_cost', 'actions'];
+  displayedColumns: string[] = ['name', 'quantity', 'unit_cost', 'units_of_measurement', 'actions'];
 
 
   constructor(
@@ -38,7 +38,33 @@ export class ProductComponent implements OnInit {
   }
 
 
-  openProductDialog(product?: IProduct) {
+  openCreateProductDialog(product?: IProduct) {
+    const dialogRef = this.dialog.open(ProductModalComponent, {
+      width: '550px'
+    });
+
+    dialogRef.afterClosed().subscribe((result) => {
+      if (result) {
+        // Обновлнение продукта
+        if (result.id) {
+          this.productService.updateProduct(result).subscribe(
+            () => {
+              this.loadProducts();
+            }
+          );
+          // Добавление продукта
+        } else {
+          this.productService.addProduct(result).subscribe(
+            () => {
+              this.loadProducts();
+            }
+          );
+        }
+      }
+    });
+  }
+
+  openChangeProductDialog(product?: IProduct) {
     const dialogRef = this.dialog.open(ProductModalComponent, {
       width: '550px',
       data: product || {}, // Передача данных в модальное окно
