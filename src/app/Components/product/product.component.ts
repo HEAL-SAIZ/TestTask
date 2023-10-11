@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { IProduct } from './product.model';
+import { IProduct } from '../../Models/product.model';
 import { ProductService } from 'src/app/Services/product.service';
 import { MatDialog } from '@angular/material/dialog';
 import { ProductModalComponent } from './product-modal/product-modal.component';
@@ -38,28 +38,20 @@ export class ProductComponent implements OnInit {
   }
 
 
-  openCreateProductDialog(product?: IProduct) {
+  openCreateProductDialog() {
     const dialogRef = this.dialog.open(ProductModalComponent, {
       width: '550px'
     });
 
     dialogRef.afterClosed().subscribe((result) => {
       if (result) {
-        // Обновлнение продукта
-        if (result.id) {
-          this.productService.updateProduct(result).subscribe(
-            () => {
-              this.loadProducts();
-            }
-          );
-          // Добавление продукта
-        } else {
-          this.productService.addProduct(result).subscribe(
-            () => {
-              this.loadProducts();
-            }
-          );
-        }
+        // Добавление продукта
+        this.productService.addProduct(result).subscribe(
+          () => {
+            this.loadProducts();
+          }
+        );
+
       }
     });
   }
@@ -73,20 +65,12 @@ export class ProductComponent implements OnInit {
     dialogRef.afterClosed().subscribe((result) => {
       if (result) {
         // Обновлнение продукта
-        if (result.id) {
-          this.productService.updateProduct(result).subscribe(
-            () => {
-              this.loadProducts();
-            }
-          );
-          // Добавление продукта
-        } else {
-          this.productService.addProduct(result).subscribe(
-            () => {
-              this.loadProducts();
-            }
-          );
-        }
+        this.productService.updateProduct(result).subscribe(
+          () => {
+            this.loadProducts();
+          }
+        );
+
       }
     });
   }

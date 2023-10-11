@@ -1,0 +1,16 @@
+<h2 mat-dialog-title class="text-center">Единицы измерения</h2>
+<div mat-dialog-content>
+    <form #productForm="ngForm" class="container flex flex-col">
+        <mat-form-field class=" ">
+            <mat-label>Название</mat-label>
+            <input matInput placeholder="Название" [(ngModel)]="units_of_measurements.value" name="value" required>
+        </mat-form-field>
+    </form>
+</div>
+<div mat-dialog-actions class="flex w-full  !justify-between !pb-5 !px-6">
+
+    <button mat-raised-button class=" !bg-black !text-white !w-40 " (click)="onNoClick()">Отмена</button>
+    <button mat-raised-button class="!w-40" color="primary" [mat-dialog-close]="units_of_measurements"
+        cdkFocusInitial>Сохранить</button>
+
+</div>

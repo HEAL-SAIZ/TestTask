@@ -1,6 +1,6 @@
 import { Component, OnInit, Inject } from '@angular/core';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
-import { IProduct } from '../product.model';
+import { IProduct } from '../../../Models/product.model';
 
 @Component({
   selector: 'app-product-modal-info',

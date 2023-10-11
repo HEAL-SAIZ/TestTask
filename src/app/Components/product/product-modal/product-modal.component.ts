@@ -1,8 +1,8 @@
 import { Component, OnInit, Inject } from '@angular/core';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
-import { IProduct } from '../product.model';
+import { IProduct } from '../../../Models/product.model';
 import { UnitOfMeasurementService } from 'src/app/Services/unit-of-measurement.service';
-import { IUnitsOfMeasurement } from '../UnitsOfMeasurement.modal';
+import { IUnitsOfMeasurement } from '../../../Models/UnitsOfMeasurement.modal';
 
 
 

@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { AppRoutingModule } from './app-routing.module';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { MatButtonModule } from '@angular/material/button';
@@ -16,6 +17,11 @@ import { ProductComponent } from './Components/product/product.component';
 import { ProductService } from './Services/product.service';
 import { ProductModalComponent } from './Components/product/product-modal/product-modal.component';
 import { ProductModalInfoComponent } from './Components/product/product-modal-info/product-modal-info.component';
+import { UnitsOfMeasurmentModalComponent } from './Components/units-of-measurment/units-of-measurment-modal/units-of-measurment-modal.component';
+import { UnitsOfMeasurmentModalInfoComponent } from './Components/units-of-measurment/units-of-measurment-modal-info/units-of-measurment-modal-info.component';
+import { UnitsOfMeasurmentComponent } from './Components/units-of-measurment/units-of-measurment.component';
+import { UnitOfMeasurementService } from './Services/unit-of-measurement.service';
+import { NavbarComponent } from './Components/navbar/navbar.component';
 
 
 @NgModule({
@@ -23,7 +29,11 @@ import { ProductModalInfoComponent } from './Components/product/product-modal-in
     AppComponent,
     ProductModalComponent,
     ProductComponent,
-    ProductModalInfoComponent
+    ProductModalInfoComponent,
+    UnitsOfMeasurmentModalComponent,
+    UnitsOfMeasurmentModalInfoComponent,
+    UnitsOfMeasurmentComponent,
+    NavbarComponent
   ],
   imports: [
     BrowserModule,
@@ -37,8 +47,9 @@ import { ProductModalInfoComponent } from './Components/product/product-modal-in
     MatDialogModule,
     MatFormFieldModule,
     MatSelectModule,
+    AppRoutingModule,
   ],
-  providers: [ProductService],
+  providers: [ProductService, UnitOfMeasurementService],
   bootstrap: [AppComponent],
 })
 export class AppModule { }

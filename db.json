@@ -1,32 +1,32 @@
 {
   "product": [
     {
+      "id": 1,
       "name": "Чипсы",
-      "quantity": 2000,
-      "unit_cost": 50,
+      "quantity": 100,
+      "unit_cost": 80,
+      "units_of_measurement": {
+        "value": "Литры",
+        "id": 1
+      }
+    },
+    {
+      "id": 2,
+      "name": "Газировка",
+      "quantity": 2,
+      "unit_cost": 80,
+      "units_of_measurement": {
+        "value": "Литры",
+        "id": 1
+      }
+    },
+    {
       "id": 3,
-      "units_of_measurement": {
-        "id": 1,
-        "value": "Штуки"
-      }
-    },
-    {
-      "name": "Ананасы",
-      "quantity": 261,
-      "unit_cost": 189,
-      "id": 4,
-      "units_of_measurement": {
-        "id": 2,
-        "value": "Штуки"
-      }
-    },
-    {
-      "name": "Хлеб",
+      "name": "Кока",
       "quantity": 1000,
-      "unit_cost": 35,
-      "id": 5,
+      "unit_cost": 200000,
       "units_of_measurement": {
-        "id": 2,
+        "id": 0,
         "value": "Штуки"
       }
     }
