@@ -3,7 +3,7 @@
     <form #productForm="ngForm" class="container flex flex-col">
         <mat-form-field class=" ">
             <mat-label>Название</mat-label>
-            <input matInput placeholder="Название" [(ngModel)]="product.name" name="name" required>
+            <input matInput placeholder="Название" [(ngModel)]="product.name" name="product_name" required>
         </mat-form-field>
         <mat-form-field class="">
             <mat-label>Количество</mat-label>
@@ -16,11 +16,15 @@
                 name="unit_cost" required>
         </mat-form-field>
         <mat-form-field class="">
-            <mat-label>Ед. изм.</mat-label>
-            <!--Какаято шляпа с undefiend-->
-            <mat-select [(ngModel)]="product.units_of_measurement.value" name="units_of_measurement" required>
-                <mat-option *ngFor="let option of units_of_measurements" [value]="option?.value">
-                    {{option?.value}}
+            <mat-label *ngIf="product.units_of_measurement.value==''">Выберите единицы измерения
+                {{product.units_of_measurement.value}}
+            </mat-label>
+            <mat-label *ngIf="!(product.units_of_measurement.value=='')">Сейчас выбранно:
+                {{product.units_of_measurement.value}}
+            </mat-label>
+            <mat-select [(ngModel)]="product.units_of_measurement" name="units_of_measurement" required>
+                <mat-option *ngFor="let option of units_of_measurements" [value]="option">
+                    {{option.value}}
                 </mat-option>
             </mat-select>
         </mat-form-field>
